@@ -5,8 +5,8 @@ import Login from './components/Login'
 import Home from './components/Home'
 import jobs from './components/Jobs'
 
-import JobItemDetails from './components/jobItemDetails'
-import NotFound from './components/jobs'
+import JobItemDetails from './components/JobItemDetails'
+import NotFound from './components/Jobs'
 import ProtectedRoute from './components/ProtectedRoute'
 
 import './App.css'
@@ -49,19 +49,15 @@ const salaryRangesList = [
   },
 ]
 
-class App extends Component {
-  render() {
-    return (
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <ProtectedRoute exact path="/" component={Home} />
-        <ProtectedRoute exact path="/jobs" component={jobs} />
-        <ProtectedRoute exact path="/jobs/:id" component={jobItemDetails} />
-        <Route path="/not-found" component={NotFound} />
-        <Redirect to="not-found" />
-      </Switch>
-    )
-  }
-}
+const App = () => (
+  <Switch>
+    <Route exact path="/login" component={Login} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/jobs" component={jobs} />
+    <ProtectedRoute exact path="/jobs/:id" component={JobItemDetails} />
+    <Route path="/not-found" component={NotFound} />
+    <Redirect to="not-found" />
+  </Switch>
+)
 
 export default App
