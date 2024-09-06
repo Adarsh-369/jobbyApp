@@ -34,9 +34,9 @@ class AboutJob extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const jobDetailsApiUrl = 'https://apis.ccbp.in/jobs/${id}'
+    const jobDetailsApiUrl = `https://apis.ccbp.in/jobs/${id}`
     const optionsJobData = {
-      headers: {Authorization: 'Bearer ${jwtToken}'},
+      headers: {Authorization: `Bearer ${jwtToken}`},
       method: 'GET',
     }
     const responseJobData = await fetch(jobDetailsApiUrl, optionsJobData)
@@ -94,7 +94,6 @@ class AboutJob extends Component {
         companyLogoUrl,
         companyWebsiteUrl,
         employmentType,
-        id,
         jobDescription,
         lifeAtCompany,
         location,
@@ -128,7 +127,7 @@ class AboutJob extends Component {
                     <p className="location">{location}</p>
                   </div>
                   <div className="employment-type-icon-employment-type-container">
-                    <p className="job-type">{employment - type}</p>
+                    <p className="job-type">{employmentType}</p>
                   </div>
                 </div>
                 <div className="package-container">

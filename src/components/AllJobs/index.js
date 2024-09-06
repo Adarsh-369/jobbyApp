@@ -88,12 +88,12 @@ class AllJobs extends Component {
         shortBio: profile.short_bio,
       }
       console.log(updatedProfileData)
-      this.setSate({
+      this.setState({
         profileData: updatedProfileData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
-      this.setSate({apiSatus: apiStatusConstants.failure})
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
 
@@ -102,7 +102,7 @@ class AllJobs extends Component {
     const {activeCheckBoxList, activeSalaryRangeId, searchInput} = this.state
     const type = activeCheckBoxList.join(',')
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/jobs?employment_type=${type}&minimum_package=${activeSalaryRangeId}&search=${search}`
+    const url = `https://apis.ccbp.in/jobs?employment_type=${type}&minimum_package=${activeSalaryRangeId}&search=${searchInput}`
     const option = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -330,12 +330,13 @@ class AllJobs extends Component {
           onKeyDown={this.onEnterSearchInput}
         />
         <button
+          aria-label="Search"
           data-testid="searchButton"
           type="button"
           className="search-button"
           onClick={this.onSubmitSearchInput}
         >
-          <AiOutlineSearch classNme="search-icon" />
+          <AiOutlineSearch className="search-icon" />
         </button>
       </>
     )
