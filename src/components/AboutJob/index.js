@@ -64,7 +64,7 @@ class AboutJob extends Component {
         }),
       )
 
-      const updatedSimilarJobDetails = fetchedJobData.similar_jpbs.map(
+      const updatedSimilarJobDetails = fetchedJobData.similar_jobs.map(
         eachItem => ({
           companyLogoUrl: eachItem.company_logo_url,
           id: eachItem.id,
